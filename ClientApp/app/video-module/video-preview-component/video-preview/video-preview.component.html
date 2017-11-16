@@ -1,0 +1,4 @@
+<div *ngIf="videoFile?.url">
+    <h5>Video Preview</h5>
+    <video (loadedmetadata)="onMetadataLoaded($event)" controls width="40%" height="40%" src="/{{videoFile.url}}"></video>
+</div>

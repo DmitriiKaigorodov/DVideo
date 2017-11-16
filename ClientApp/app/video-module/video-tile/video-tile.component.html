@@ -1,0 +1,21 @@
+
+<div class="col-lg-4" style="padding-bottom: 10px" title="{{videoInfo.title}}">
+    <a href="video/watch/{{videoInfo.id}}" class="video-link">
+      <div class="video" *ngIf="!videoInfo.thumbnail">
+        <video 
+         (mouseover)='onMouseOverVideo($event)'
+         (mouseleave)="onMouseLeaveVideo($event)"
+         (timeupdate)="onVideoTimeChanged($event)"
+         (loadedmetadata)="onMetadataLoaded($event)"
+         [poster]="videoInfo.thumbnail"
+         width="220px" height="140px"
+        >
+          <source src="{{videoInfo.videoSource}}" ><source>
+        </video>
+        <span class="label label-default video-duration-label" style="font-size:10pt">
+          <span >{{videoInfo.durationTime}}</span> 
+        </span> 
+      </div>
+      <b class="video-title">{{videoInfo.title | title:30}}</b>
+    </a>
+</div>

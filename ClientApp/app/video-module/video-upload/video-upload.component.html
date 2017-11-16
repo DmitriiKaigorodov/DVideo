@@ -1,0 +1,9 @@
+<div class="center">
+    <label class="btn btn-info" [style.display]="!enabled ? 'none' : ''">      
+        <span *ngIf="!videoFile?.url">Select video file</span>
+        <span *ngIf="videoFile?.url">Change video file</span>
+        <input [disabled]="!enabled" type="file" style="display: none" id="video" name="video" (change)="onVideoSelected($event)" >
+    </label>
+    <progress-bar [progress]="progressPercentage"></progress-bar>
+</div>
+<video-preview [videoFile]="videoFile"></video-preview>

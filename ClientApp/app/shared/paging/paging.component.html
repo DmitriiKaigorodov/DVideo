@@ -1,0 +1,15 @@
+<ul class="pagination" *ngIf="pages.length > 1">
+    <li class="page-item" [class.disabled]="currentPage == 1">
+        <a class="page-link" (click)="onPrevClicked()">&laquo;</a>
+    </li>
+    <li *ngFor="let page of pages" [class.active]="currentPage == page">
+        <a class="page-link" 
+        (click)="onPageClick(page)">{{page}}</a>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == pages.length">
+        <a class="page-link"      
+        (click)="onNextClicked()">
+            &raquo;
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,22 @@
+<h1>Videos</h1>
+<hr>
+<button (click)="toggleFilters()" class="btn btn-primary">{{filterButtonText}}</button>
+<div class="filters" *ngIf="showFilters">
+  <h4>Video filters:</h4>
+  <h5>Categories</h5>
+  <category-switcher [categories]="categories" (categoryChanged)="categoryChanged($event)"></category-switcher>  
+  <h5>Video length:</h5>
+  <video-length-filter (lengthChanged)="lengthChanged($event)"></video-length-filter>
+</div>
+<hr>
+<div>  
+    <div *ngFor="let videoInfo of videosInfo">
+      <video-tile [videoInfo]="videoInfo"></video-tile>
+    </div>
+</div>
+<div class="col-lg-12">
+    <paging  [totalItems]="totalItems" [itemsPerPage]="query.limit"
+    (pageChanged)="onPageChanged($event)"></paging> 
+</div>
+
+

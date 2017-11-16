@@ -1,0 +1,74 @@
+<h1>{{formAppearanceInfo.formHeader}}</h1>
+<form #form="ngForm">
+
+    <fieldset>
+            <button style="float:right" (click)="submit()"
+             [disabled]="!form.valid" class="btn btn-primary">
+                {{formAppearanceInfo.actionButtonText}}
+            </button>
+    </fieldset>
+    <fieldset class="form-group">
+        <legend>Upload video file*</legend>  
+        <div *ngIf="isVideoEditing" style="text-align:center">
+            <b>You can not change source of existing video.</b>
+        </div> 
+        <video-upload  #videofile="ngModel" [(ngModel)]="video.file" 
+        name="videofile" [enabled]="!isVideoEditing" ngDefaultControl required ></video-upload>
+        <br>
+        <div *ngIf="videofile.touched && !videofile.valid" class="alert alert-danger">
+            You have to select video file.
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <legend>Video information</legend>
+
+        <div class="container  col-md-12">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a  href="#basicInfoBlock" data-toggle="tab">Basic info</a>
+                </li>
+                <li>
+                    <a href="#thumbnailBlock" data-toggle="tab">Thumbnail</a>
+                </li>
+                <li>
+                    <a href="#additionalInfoBlock" data-toggle="tab">Additional info</a>
+                </li>
+            </ul>
+            <div class="tab-content clearfix panel">
+                <div id="basicInfoBlock" class="tab-pane active">
+                    <div class="form-group">
+                        <label for="title">Title*</label>
+                        <input type="text" [(ngModel)]="video.title" 
+                        class="form-control" id="title" name="title" #title="ngModel" required>
+                    </div>
+                    <div *ngIf="title.touched && !title.valid" class="alert alert-danger">
+                        Title is required.
+                    </div>
+                    <div class="form-group">
+                            <label for="categories">Categories*</label>
+                        <categories-selector
+                            [(ngModel)]="video.categories" 
+                            #categories="ngModel" name="categories"
+                             required >
+                        </categories-selector>
+                    </div> 
+                    <div *ngIf="categories.touched && !categories.valid" class="alert alert-danger">
+                        You should select at least 1 category for your video
+                    </div>
+                </div>
+                <div id="thumbnailBlock" class="tab-pane">
+                    <thumbnail-upload [(ngModel)]="video.thumbnail" name="thumbnail" ngDefaultControl></thumbnail-upload>
+                </div>
+                <div id="additionalInfoBlock" class="tab-pane">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea [(ngModel)]="video.description"  name="description" id="description" cols="30" rows="5" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </fieldset>
+
+
+</form>

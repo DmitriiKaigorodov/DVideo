@@ -1,0 +1,12 @@
+<h4>Description:</h4>
+<div *ngIf="text.length > 0">
+    {{displayText}} 
+    <a *ngIf="text.length >= visibleCharactersCount" 
+            (click)="toggle()" class="toggle-button">
+            <b>{{linkLabel}}</b>
+    </a>
+</div>
+<div  *ngIf="text.length == 0">
+    <span class="no-description">Author didn't provide any description for this video</span>
+</div>
+

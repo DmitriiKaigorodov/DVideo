@@ -1,0 +1,14 @@
+
+<div style="margin-top:3px">
+  <a *ngFor="let category of categories" href="#" (click)="onCategoryClicked($event, category)" 
+  style="text-decoration: none; margin-right: 5px">
+      <span class="label" [ngClass]="
+        {
+          'label-primary': category.id != selectedCategoryId,
+          'label-selected': category.id == selectedCategoryId
+        }"
+       style="font-size:12pt">
+          <span >{{category.name}}</span> 
+      </span>
+  </a>
+</div>

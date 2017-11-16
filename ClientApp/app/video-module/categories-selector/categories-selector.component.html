@@ -1,0 +1,14 @@
+<ng2-completer  
+ (selected)="onCategorySelected($event)"
+ [inputClass]="['form-control']" 
+ [datasource]="categoriesData" 
+ [minSearchLength]="3"
+ [clearSelected]="true"
+ [clearUnselected]="true"
+ (blur)="onBlur()">
+</ng2-completer>
+<br/>
+<span *ngFor="let category of selectedCategories" class="tag label label-primary">
+   <span>{{category.name}}</span> 
+   <a><i class="remove glyphicon glyphicon-remove-sign glyphicon-white" (click)="removeCategory(category)"></i></a>
+</span>

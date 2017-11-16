@@ -1,0 +1,24 @@
+span
+{
+    font-size: 15pt;
+    cursor: pointer;
+}
+
+span.like
+{
+    color: green;
+}
+
+span.dislike
+{
+    color: red;
+}
+
+i.liked
+{
+    background: green;
+}
+i.disliked
+{
+    background: red;
+}

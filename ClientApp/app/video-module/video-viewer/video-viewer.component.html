@@ -1,0 +1,40 @@
+<div style="text-align:center">
+  <video [src]="video.file.url" controls autoplay style="margin-top:20px" width="67%" height="315"></video>
+</div>
+<div class="col-lg-12">
+  <div class="col-lg-9">
+      <h3>{{video.title}}</h3>
+  </div>
+  <div class="col-lg-3">
+      <likes-panel [video]="video"></likes-panel>
+  </div>  
+
+</div>
+<div class="col-lg-12">
+    <hr>
+</div>
+<div id="videoInfo">
+  <div id="mainInfo" class="col-lg-6">
+      <img class="avatar-tiny"
+         src="{{video.author.avatar || 'dist/assets/images/default-avatar.png'}}"
+         align="left">
+      <div class="main-info-text">
+        <a href="" class="author-name">
+          <b>{{video.author.name}}</b>
+        </a>
+        <p>Published at: {{video.publishDate | date: 'dd MMMM yyyy'}}</p> 
+      </div>
+  </div>
+  <div class="col-lg-6">
+      <categories-viewer [(ngModel)]="video.categories"></categories-viewer>
+  </div>
+  <div class="col-lg-12">  
+      <description [text]="video.description"></description>
+  </div>
+</div>
+<div id="comments" class="col-lg-12">
+    <hr>
+</div>
+
+
+

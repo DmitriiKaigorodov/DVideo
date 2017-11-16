@@ -1,0 +1,22 @@
+hr{
+    margin-bottom:7px;
+    margin-top: 12px;
+}
+div#mainInfo{
+    margin-top: 5px;
+}
+h3{
+    margin: 0px;
+}
+div#mainInfo>.avatar-tiny
+{
+    margin-right: 10px;
+}
+.author-name
+{
+    text-decoration: none;
+}
+div>description
+{
+    margin-top: 8px;
+}

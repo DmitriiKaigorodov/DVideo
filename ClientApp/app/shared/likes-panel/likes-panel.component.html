@@ -1,0 +1,12 @@
+<span (click)="like()" class="like" >
+    <i class="fa" [ngClass]="{
+        'fa-thumbs-up': state == 1,
+        'fa-thumbs-o-up': state != 1
+    }"></i> {{video.likes}}
+</span>
+<span (click)="dislike()"  class="dislike" >
+    <i class="fa" [ngClass]="{
+        'fa-thumbs-down': state == 2,
+        'fa-thumbs-o-down': state != 2
+    }"></i> {{video.dislikes}}
+</span>

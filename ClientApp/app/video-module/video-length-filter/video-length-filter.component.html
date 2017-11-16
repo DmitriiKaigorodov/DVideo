@@ -1,0 +1,15 @@
+
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <a (click)="onLengthChanged($event, 1)" class="btn btn-default" 
+  [class.btn-primary]="selectedOption == 1"
+   role="button" >Any</a>
+  <a (click)="onLengthChanged($event, 2)" class="btn btn-default" 
+    [class.btn-primary]="selectedOption == 2"
+    role="button" maxLength="300">Short (0 - 5 mins)</a>
+  <a (click)="onLengthChanged($event, 3)" class="btn btn-default"
+  [class.btn-primary]="selectedOption == 3"
+     role="button" minLength="300" maxLength="1800">Medium (5 - 30 mins)</a>
+  <a (click)="onLengthChanged($event, 4)" class="btn btn-default"
+  [class.btn-primary]="selectedOption == 4"
+   role="button" minLength="1801">Long (30+ mins)</a>
+</div>
