@@ -58,10 +58,6 @@ namespace DVideo.Persistent
              modelBuilder.Entity<User>().HasMany( user => user.PublishedVideos)
              .WithOne( v => v.Author).HasForeignKey( v => v.AuthorId);
 
-             modelBuilder.Entity<Category>()
-             .HasMany( c => c.Subcategories).WithOne( c => c.Parent)
-             .HasForeignKey( c => c.ParentId);
-
              modelBuilder.Entity<Comment>()
              .HasOne( cm => cm.User).WithMany( user => user.Comments)
              .HasForeignKey( cm => cm.UserId).OnDelete(DeleteBehavior.Restrict);

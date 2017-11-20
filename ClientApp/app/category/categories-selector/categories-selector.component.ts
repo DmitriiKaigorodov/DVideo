@@ -1,8 +1,9 @@
-import { Category } from './../models/Categories/Category';
+import { Category } from './../../category/models/Category';
+import { Observable } from 'rxjs/Observable';
 import { CompleterService, CompleterData } from 'ng2-completer';
 import { Component, OnInit, Output, EventEmitter, OnChanges, SimpleChanges, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-
+import 'rxjs/add/operator/merge';
 
 const CATEGORIES_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,

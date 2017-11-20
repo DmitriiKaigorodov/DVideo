@@ -53,7 +53,7 @@ export class VideosService {
       {
           var value = obj[property];
   
-          if(value)
+          if(value && typeof(value) != "function")
              queryString += property + "=" + encodeURIComponent(value) + "&";
       }
   

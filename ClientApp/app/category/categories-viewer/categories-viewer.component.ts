@@ -1,5 +1,5 @@
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Category } from './../models/Categories/Category';
+import { Category } from './../../category/models/Category';
 import { Component, OnInit, forwardRef } from '@angular/core';
 
 

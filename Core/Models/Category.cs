@@ -12,14 +12,10 @@ namespace DVideo.Core.Models
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
-        public Category Parent { get; set; }
-        public int? ParentId { get; set; }
-        public virtual ICollection<Category> Subcategories { get; set; }
         public virtual ICollection<CategoryVideo> Videos { get; set; }
 
         public Category()
         {
-            Subcategories = new Collection<Category>();
             Videos = new Collection<CategoryVideo>();
         }
     }

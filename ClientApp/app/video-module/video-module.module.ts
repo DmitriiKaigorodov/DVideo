@@ -1,4 +1,5 @@
-import { CategoriesService } from './services/categories.service';
+import { CategoryModule } from './../category/category.module';
+import { CategoriesService } from './../category/services/categories.service';
 import { AppModule } from './../app.module.browser';
 import { VideosService } from './services/videos.service';
 
@@ -24,13 +25,10 @@ import { ThumbnailUploadComponent } from './thumbnail-upload/thumbnail-upload.co
 import { SharedModule } from "../shared/shared.module";
 import { ToastyService, ToastyConfig } from "ng2-toasty";
 import { CompleterService } from "ng2-completer";
-import { CategoriesSelectorComponent } from './categories-selector/categories-selector.component';
 import { VideoViewerComponent } from './video-viewer/video-viewer.component';
-import { CategoriesViewerComponent } from './categories-viewer/categories-viewer.component';
 import { DescriptionComponent } from './description/description.component';
 import { VideoListComponent } from './video-list/video-list.component';
 import { VideoTileComponent } from './video-tile/video-tile.component';
-import { CategorySwitcherComponent } from './category-switcher/category-switcher.component';
 import { VideoLengthFilterComponent } from './video-length-filter/video-length-filter.component';
 
 @NgModule({
@@ -39,13 +37,13 @@ import { VideoLengthFilterComponent } from './video-length-filter/video-length-f
     VideoRoutingModule,
     FormsModule,
     ProgressModule,
-    SharedModule
+    SharedModule,
+    CategoryModule
   ],
   declarations: 
   [ CreateVideoFormComponent, VideoPreviewComponent, VideoUploadComponent,
-    ThumbnailUploadComponent, CategoriesSelectorComponent, VideoViewerComponent,
-    CategoriesViewerComponent,DescriptionComponent, VideoListComponent, VideoTileComponent
-  , CategorySwitcherComponent, VideoLengthFilterComponent],
+    ThumbnailUploadComponent, VideoViewerComponent,DescriptionComponent,
+     VideoListComponent, VideoTileComponent, VideoLengthFilterComponent],
   providers: [
           VideoFilesService, ThumbnailsService, 
         { provide: BrowserXhr, useClass: ProgressBrowserXhr},

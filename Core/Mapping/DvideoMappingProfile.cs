@@ -27,8 +27,7 @@ namespace DVideo.Core.Mapping
             .ForMember( v => v.Url, opt => opt.Ignore());
 
             CreateMap<Category, KeyValuePairResource>();
-            CreateMap<SaveCategoryResource, Category>()
-            .ForMember( sc => sc.ParentId, opt=> opt.AllowNull());
+            CreateMap<SaveCategoryResource, Category>();
 
             CreateMap<UploadedFile, Thumbnail>();
             CreateMap<UploadedFile, VideoFile>();

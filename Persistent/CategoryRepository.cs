@@ -24,7 +24,7 @@ namespace DVideo.Persistent
 
         public async Task<IEnumerable<Category>> GetCategories(CategoryQuery query)
         {
-            var categories =  context.Categories.Include( c => c.Subcategories).AsQueryable();
+            var categories =  context.Categories.AsQueryable();
 
             if(!string.IsNullOrWhiteSpace(query.Name))
                 categories = categories.Where( c => c.Name.StartsWith(query.Name));
@@ -38,8 +38,7 @@ namespace DVideo.Persistent
                 return await context.Categories.FindAsync(id);
 
             
-            return await context.Categories.Include( c => c.Subcategories)
-            .SingleOrDefaultAsync( c => c.Id == id);
+            return await context.Categories.SingleOrDefaultAsync( c => c.Id == id);
         }
 
         public void Remove(Category category)

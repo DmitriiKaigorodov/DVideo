@@ -1,7 +1,7 @@
 import { ToastyService } from 'ng2-toasty';
 import { VideosService } from './../services/videos.service';
 import { Video } from './../models/Video/Video';
-import { Category } from './../models/Categories/Category';
+import { Category } from './../../category/models/Category';
 import { SaveVideo } from './../models/Video/SaveVideo';
 import { Thumbnail } from './../models/Thumbnail';
 import { ThumbnailsService } from './../services/thumbnails.service';

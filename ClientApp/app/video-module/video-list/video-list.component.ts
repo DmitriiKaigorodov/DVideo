@@ -1,6 +1,6 @@
+import { CategoriesService } from './../../category/services/categories.service';
+import { Category } from './../../category/models/Category';
 import { VideoQuery } from './../models/Video/VideoQuery';
-import { Category } from './../models/Categories/Category';
-import { CategoriesService } from './../services/categories.service';
 import { MainVideoInfo } from './../models/Video/MainVideoInfo';
 import { VideosService } from './../services/videos.service';
 import { Video } from './../models/Video/Video';

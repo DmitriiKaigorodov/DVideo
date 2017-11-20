@@ -1,7 +1,7 @@
 import { Author } from './../Author';
-import { Category } from './../Categories/Category';
 import { Thumbnail } from './../Thumbnail';
 import { VideoFile } from './../VideoFile';
+import { Category } from '../../../category/models/Category';
 export class Video
 {
     id : number = 0;
