@@ -1,0 +1,40 @@
+.no_content
+{
+    margin-top: 15px;
+}
+
+.table
+{
+    margin-top: 15px;
+}
+
+.loader
+{
+    margin-top: 15px;
+}
+
+.category_name
+{
+    vertical-align: middle;
+}
+.category_name>span
+{
+    font-size: 12pt;
+}
+
+th
+{
+    text-align: center;
+}
+
+#searchclear {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    height: 14px;
+    margin: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #ccc;
+}

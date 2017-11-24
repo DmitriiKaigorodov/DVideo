@@ -6,6 +6,7 @@ import { Http, HttpModule, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { objectToQueryString } from '../../shared/utils';
 
 
 @Injectable()
@@ -41,23 +42,11 @@ export class VideosService {
         let queryString = "";
         if(query)
         {
-             queryString = this.toQueryString(query);
+             queryString = objectToQueryString(query);
         }
         return this.http.get(this.videoEndPoint + queryString).map( r=> r.json());
     }
 
-    private toQueryString(obj: any)
-    {
-     var queryString = "?";
-      for(var property in obj)
-      {
-          var value = obj[property];
-  
-          if(value && typeof(value) != "function")
-             queryString += property + "=" + encodeURIComponent(value) + "&";
-      }
-  
-      return queryString;
-    }
+
     
 }

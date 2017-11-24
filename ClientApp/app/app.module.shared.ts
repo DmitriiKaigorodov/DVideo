@@ -1,3 +1,4 @@
+import { CategoryRoutingModule } from './category/category-module-routing.module';
 import { ToastyModule, ToastyConfig,ToastyService } from 'ng2-toasty';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VideoRoutingModule } from './video-module/video-module-routing.module';
@@ -28,6 +29,7 @@ import { CounterComponent } from './components/counter/counter.component';
         FormsModule,
         VideoModule,
         VideoRoutingModule,
+        CategoryRoutingModule,
         ToastyModule.forRoot(),
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },

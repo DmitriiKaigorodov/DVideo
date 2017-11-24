@@ -26,18 +26,16 @@ namespace DVideo.Persistent
         {
             var categories =  context.Categories.AsQueryable();
 
-            if(!string.IsNullOrWhiteSpace(query.Name))
-                categories = categories.Where( c => c.Name.StartsWith(query.Name));
+           /* if(!string.IsNullOrWhiteSpace(query.Name))
+                categories = categories.Where( c => c.Name.Contains(query.Name));*/
+
+            categories = query.ApplyFiltering(categories);
 
              return await categories.ToListAsync();
         }
 
-        public async Task<Category> GetCategory(int id, bool includeSubcategories = false)
-        {
-            if(!includeSubcategories)
-                return await context.Categories.FindAsync(id);
-
-            
+        public async Task<Category> GetCategory(int id)
+        {           
             return await context.Categories.SingleOrDefaultAsync( c => c.Id == id);
         }
 

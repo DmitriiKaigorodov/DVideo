@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { SharedModule } from './../shared/shared.module';
 import { CategoriesService } from './services/categories.service';
 import { CategoriesSelectorComponent } from './categories-selector/categories-selector.component';
@@ -12,7 +13,8 @@ import { CategoriesViewerComponent } from './categories-viewer/categories-viewer
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   declarations: [ CategoryListComponent, CategorySwitcherComponent,
      CategoriesViewerComponent,  CategoriesSelectorComponent],

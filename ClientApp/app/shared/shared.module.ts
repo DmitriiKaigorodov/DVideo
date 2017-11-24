@@ -8,7 +8,9 @@ import { CommonModule } from '@angular/common';
 import { ProgressBarComponent } from "./ProgressBar/progressbar.component";
 import { Ng2CompleterModule } from "ng2-completer";
 import { LikesPanelComponent } from './likes-panel/likes-panel.component';
-import { NouisliderModule } from 'ng2-nouislider/src/nouislider'
+import { NouisliderModule } from 'ng2-nouislider/src/nouislider';
+import { LoaderComponent } from './loader/loader.component'
+import { objectToQueryString } from './utils';
 
 @NgModule({
   imports: [
@@ -19,7 +21,8 @@ import { NouisliderModule } from 'ng2-nouislider/src/nouislider'
     FormsModule
   ],
   exports: [ ProgressBarComponent, ToastyModule, Ng2CompleterModule,
-     LikesPanelComponent, NouisliderModule, TitlePipe, PagingComponent],
-  declarations: [ProgressBarComponent, LikesPanelComponent, TitlePipe, PagingComponent ]
+     LikesPanelComponent, NouisliderModule, TitlePipe, PagingComponent, LoaderComponent],
+  declarations: [ProgressBarComponent, LikesPanelComponent,
+     TitlePipe, PagingComponent, LoaderComponent ]
 })
 export class SharedModule { }

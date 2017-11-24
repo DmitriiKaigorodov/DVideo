@@ -8,7 +8,7 @@ namespace DVideo.Core.Repositories
     public interface ICategoryRepository
     {
          Task<IEnumerable<Category>> GetCategories(CategoryQuery query);
-         Task<Category> GetCategory(int id, bool includeSubcategories = false);
+         Task<Category> GetCategory(int id);
          void Add(Category category);
          void Remove(Category category);
     }
