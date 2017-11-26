@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using DVideo.Core.Extentions;
 using DVideo.Core.FileStorage;
 using DVideo.Core.Models;
 using DVideo.Core.Models.Queries;
@@ -102,7 +103,12 @@ namespace DVideo.Core.Mapping
             .ForMember( vr => vr.Name, opt=> opt.MapFrom( ulv => ulv.User.Name))
             .ForMember( vr => vr.Avatar, opt => opt.AllowNull())
             .ForMember( vr => vr.Avatar, opt => opt.MapFrom( ulv => ulv.User.Avatar.Path));
-            CreateMap<SaveUserResource, User>();
+            CreateMap<SaveUserResource, User>()
+            .ForMember( u => u.Password, opt => opt.Ignore())
+            .AfterMap( (ur, u) =>
+            {
+               u.Password = ur.Password.ToSha256();
+            });
 
 
 

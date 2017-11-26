@@ -1,0 +1,52 @@
+<h1>Sign-up</h1>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <fieldset class="form-group">
+    <legend>User information:</legend>
+    <div class="form-group">
+      <label for="userName">Username: *</label>
+      <input  name="userName" formControlName="userName" [(ngModel)]="userSignUpData.name" type="text" class="form-control" id="userName" >
+      <div class="alert alert-danger" *ngIf="form.controls.userName.errors?.required && form.controls.userName.touched">
+        Username is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="form.controls.userName.errors?.minlength && form.controls.userName.touched">
+        User name must be at least {{form.controls.userName.errors.minlength.requiredLength}} characters.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">E-Mail *</label>
+      <input  name="email" formControlName="email" [(ngModel)]="userSignUpData.email" type="email" class="form-control" id="email">
+      <div class="alert alert-danger" *ngIf="form.controls.email.errors?.required && form.controls.email.touched">
+        Email is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="!form.controls.email.errors?.required && form.controls.email.errors?.emailRequired && form.controls.email.touched">
+        Email is invalid.
+      </div>
+    </div>
+    <div formGroupName="passwords">
+      <div class="form-group">
+          <label for="password">Password: *</label>
+          <input  name="password" formControlName="password" type="password" [(ngModel)]="userSignUpData.password" class="form-control" id="password">
+          <div class="alert alert-danger" *ngIf="form.controls.passwords.controls.password.errors?.required && form.controls.passwords.controls.password.touched">
+            Password is required.
+          </div>
+          <div class="alert alert-danger" *ngIf="form.controls.passwords.controls.password.errors?.minlength && form.controls.passwords.controls.password.touched">
+            Password name must be at least {{form.controls.passwords.controls.password.errors.minlength.requiredLength}} characters.
+          </div>
+          <div class="form-group">
+            <label for="repeatPassword">Repeat password: *</label>
+            <input name="repeatPassword" formControlName="repeatPassword" type="password" class="form-control" id="repeatPassword" >
+            <div class="alert alert-danger" *ngIf="form.controls.passwords.controls.repeatPassword.errors?.required && form.controls.passwords.controls.repeatPassword.touched">
+              Please repeat your password.
+            </div>
+         </div>
+          <div class="alert alert-danger" *ngIf="form.controls.passwords.errors?.passwordsDontMatch">
+              Passwords don't match
+          </div>
+      </div>
+    </div>
+    <div style="text-align:center">
+      <button [disabled]="!form.valid" class="btn btn-primary btn-lg btn-signup">Sign-up</button>
+    </div>
+    
+  </fieldset>
+</form>
