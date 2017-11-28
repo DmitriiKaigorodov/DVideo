@@ -10,6 +10,8 @@ using DVideo.Core.Models.Resources;
 using DVideo.Core.Models.Resources.Queries;
 using DVideo.Core.Repositories;
 using DVideo.Settings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -64,7 +66,9 @@ namespace DVideo.Controllers
             return Ok(result);          
         }
 
+
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> GetVideos(VideoQueryResource videoQueryResource)
         {
             var videoQuery = mapper.Map<VideoQueryResource, VideoQuery>(videoQueryResource);

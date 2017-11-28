@@ -41,6 +41,8 @@ namespace DVideo.Core.Mapping
                 TimeSpan.FromSeconds(v.File.DurationInSeconds).ToString()
             ));
 
+            CreateMap<UserCredentials, UserCredentialsResource>();
+            CreateMap<UserCredentialsResource, UserCredentials>();
             CreateMap<Video, VideoResource>()
             .ForMember( vr => vr.Categories, opt => opt.Ignore())
             .ForMember( vr => vr.Likes, opt => opt.MapFrom( v => v.UsersLiked.Count ))

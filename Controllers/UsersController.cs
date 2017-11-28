@@ -11,10 +11,10 @@ namespace DVideo.Controllers
     [Route("/api/users")]
     public class UsersController : Controller
     {
-        private readonly IUsersRepository userRepository;
+        private readonly IUserRepository userRepository;
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        public UsersController(IUsersRepository userRepository, IUnitOfWork unitOfWork, IMapper mapper)
+        public UsersController(IUserRepository userRepository, IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;

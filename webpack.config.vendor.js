@@ -26,10 +26,11 @@ const nonTreeShakableModules = [
     'ng2-completer',
     'ng2-toasty/bundles/style-bootstrap.css',
     'automapper-ts',
-    'font-awesome/css/font-awesome.css',
     'nouislider',
     'ng2-nouislider',
-    'nouislider/distribute/nouislider.min.css'
+    'nouislider/distribute/nouislider.min.css',
+    'angular2-jwt',
+    'font-awesome/css/font-awesome.css'
 ];
 const allModules = treeShakableModules.concat(nonTreeShakableModules);
 

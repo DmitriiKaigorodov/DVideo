@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DVideo.Persistent
 {
-    public class UsersRepository : IUsersRepository
+    public class UserRepository : IUserRepository
     {
         private readonly DvideoDbContext context;
-        public UsersRepository(DvideoDbContext context)
+        public UserRepository(DvideoDbContext context)
         {
             this.context = context;
 
@@ -29,6 +29,18 @@ namespace DVideo.Persistent
             return await context.Users.Include(u => u.PublishedVideos)
                     .Include(u => u.LikedVideos).Include(u => u.DislikedVideos)
                     .SingleOrDefaultAsync( u => u.Id == id);
+        }
+
+        public async Task<User> GetUserByName(string name, bool includeRelated = true)
+        {
+            if(!includeRelated)
+            {
+              return await context.Users.SingleOrDefaultAsync( u => u.Name == name);
+            }
+
+            return await context.Users.Include(u => u.PublishedVideos)
+                    .Include(u => u.LikedVideos).Include(u => u.DislikedVideos)
+                    .SingleOrDefaultAsync( u => u.Name == name);
         }
 
         public async Task<IEnumerable<User>> GetUsers()
