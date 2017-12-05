@@ -7,6 +7,8 @@ using DVideo.Core.Models.Queries;
 using DVideo.Core.Models.Resources;
 using DVideo.Core.Models.Resources.Queries;
 using DVideo.Core.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DVideo.Controllers
@@ -39,6 +41,7 @@ namespace DVideo.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> AddCategory([FromBody] KeyValuePairResource categoryResource)
         {
             var category = mapper.Map<KeyValuePairResource, Category>(categoryResource);
@@ -52,6 +55,7 @@ namespace DVideo.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> UpdateCategory(int id, [FromBody] KeyValuePairResource categoryResource)
         {
             var category = await categoryRepository.GetCategory(id);
@@ -68,6 +72,7 @@ namespace DVideo.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var category = await categoryRepository.GetCategory(id);

@@ -1,8 +1,8 @@
-import { UserSigninModel } from './../models/UserSigninModel';
+import { UserSigninModel } from './../../users/models/UserSigninModel';
+
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { JwtHelper, tokenNotExpired } from 'angular2-jwt/angular2-jwt'
-import { User } from '../models/User';
 
 @Injectable()
 export class AuthService {

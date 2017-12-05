@@ -39,6 +39,7 @@ namespace DVideo.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> CreateVideo([FromBody] SaveVideoResource video)
         {
             if(!ModelState.IsValid)
@@ -68,7 +69,6 @@ namespace DVideo.Controllers
 
 
         [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> GetVideos(VideoQueryResource videoQueryResource)
         {
             var videoQuery = mapper.Map<VideoQueryResource, VideoQuery>(videoQueryResource);
@@ -79,6 +79,7 @@ namespace DVideo.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> UpdateVideo(int id, [FromBody] SaveVideoResource videoResource)
         {
             var video = await videoRepository.GetVideo(id);

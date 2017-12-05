@@ -1,6 +1,6 @@
-import { AuthService } from './../services/auth.service';
 import { UserSigninModel } from './../models/UserSigninModel';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-signin',

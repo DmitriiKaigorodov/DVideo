@@ -8,6 +8,8 @@ using DVideo.Core.Models;
 using DVideo.Core.Models.Resources;
 using DVideo.Core.Repositories;
 using DVideo.Settings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -36,6 +38,7 @@ namespace DVideo.Controllers
 
         }
     [HttpPost]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public async Task<IActionResult> UploadThumbnail(IFormFile file)
     {
         var validationResult = thumbnailSettings.Validate(file);
